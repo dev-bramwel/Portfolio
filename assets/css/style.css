@@ -1,6 +1,7 @@
 /* GOOGLE FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 /* VARIABLE CSS */
+@import "tailwindcss";
 :root {
   --header-height: 3rem;
 
@@ -63,11 +64,13 @@
     --normal-font-size: 1rem;
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.813rem;
+    --o-animation-direction: alternate-reverse;
   }
 }
 /* BASE */
 * {
   box-sizing: border-box;
+  max-width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -75,20 +78,29 @@ html {
   scroll-behavior: smooth;
 }
 .container {
-  max-width: 968px;
+  max-width: 100%;
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
+  justify-content: center;
 }
 .project-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  justify-items: center;
+  text-align: center;
   background-color: var(--container-color);
   border-radius: 1rem;
   padding: var(--mb-2);
   margin-bottom: var(--mb-2-5);
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(10, 27, 48, 0.1);
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+
+  width: 100%;
 }
 .project-card:hover {
   background-color: var(--black-color-alt);
