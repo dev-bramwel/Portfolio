@@ -107,3 +107,50 @@ html {
   transition: transform 0.3s ease;
   transform: scale(1.02);
 }
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  color: #333;
+  text-decoration: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #4f46e5;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Optional: platform-specific colors */
+.social-icon.facebook:hover {
+  background-color: #1877f2;
+}
+.social-icon.whatsapp:hover {
+  background-color: #0cf158;
+}
+.social-icon.instagram:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  color: #fff;
+}
+.social-icon.linkedin:hover {
+  background-color: #0077b5;
+}
