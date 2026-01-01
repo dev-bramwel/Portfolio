@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Check for saved theme preference or default to 'dark'
   const currentTheme = localStorage.getItem("theme") || "dark";
-  body.setAttribute("data-theme", currentTheme);
+  body.dataset.theme = currentTheme;
   updateIcon(currentTheme);
 
   // Toggle theme on button click
   themeToggle.addEventListener("click", function () {
-    const currentTheme = body.getAttribute("data-theme");
+    const currentTheme = body.dataset.theme;
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-    body.setAttribute("data-theme", newTheme);
+    body.dataset.theme = newTheme;
     localStorage.setItem("theme", newTheme);
     updateIcon(newTheme);
   });
