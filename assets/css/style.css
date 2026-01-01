@@ -159,6 +159,44 @@ body {
   border-color: var(--accent-color);
 }
 
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: var(--z-fixed);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--accent-color);
+  color: #1c1c1c;
+  box-shadow: 0 12px 40px 0 var(--glass-shadow);
+}
+
 /* Themed Text */
 .themed-text {
   color: var(--text-secondary);
@@ -342,8 +380,9 @@ h3.text-xl {
 }
 
 /* Optional: platform-specific colors */
-.social-icon.facebook:hover {
-  background-color: #1877f2;
+.social-icon.github:hover {
+  background-color: #171515;
+  color: #F6F6F6;
 }
 .social-icon.whatsapp:hover {
   background-color: #0cf158;
