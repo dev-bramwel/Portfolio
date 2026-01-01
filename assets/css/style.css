@@ -2,26 +2,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 /* VARIABLE CSS */
 @import "tailwindcss";
+
 :root {
   --header-height: 3rem;
 
-  /* Colors */
-
+  /* Theme Colors - Dark Mode (Default) */
   --hue-color: 206;
-  --black-color: hsl(var(--hue-color), 4%, 4%);
-  --black-color-alt: hsl(var(--hue-color), 4%, 8%);
-  --title-color: hsl(var(--hue-color), 4%, 95%);
-  --text-color: hsl(var(--hue-color), 4%, 75%);
-  --text-color-light: hsl(var(--hue-color), 4%, 65%);
+  
+  /* Dark Mode Colors */
+  --bg-primary: #1C1C1C;
+  --bg-secondary: #302A1B;
+  --bg-tertiary: #3a3a3a;
+  
+  --text-primary: #F6F6F6;
+  --text-secondary: #FDE4C3;
+  --text-tertiary: rgba(253, 228, 195, 0.7);
+  
+  --text-gradient: linear-gradient(135deg, #FDE4C3, #F6F6F6);
+  
+  --accent-color: #FDE4C3;
+  --accent-hover: #F6F6F6;
+  
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(48, 42, 27, 0.4);
+  --glass-border: rgba(253, 228, 195, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+  
+  /* Legacy Variables (for compatibility) */
+  --black-color: #1C1C1C;
+  --black-color-alt: #302A1B;
+  --title-color: #F6F6F6;
+  --text-color: #FDE4C3;
+  --text-color-light: rgba(253, 228, 195, 0.8);
   --white-color: #fff;
-  --body-color: hsl(var(--hue-color), 4%, 6%);
-  --container-color: hsl(var(--hue-color), 4%, 10%);
-  --text-gradient: linear-gradient(
-    hsl(var(--hue-color), 4%, 24%),
-    hsl(var(--hue-color), 4%, 8%)
-  );
-  --scroll-thumb-color: hsl(var(--hue-color), 4%, 16%);
-  --scroll-thumb-color-alt: hsl(var(--hue-color), 4%, 20%);
+  --body-color: #1C1C1C;
+  --container-color: #302A1B;
+  --scroll-thumb-color: #302A1B;
+  --scroll-thumb-color-alt: rgba(48, 42, 27, 0.8);
 
   /* FONT AND TYPOGRAPHY */
 
@@ -53,6 +70,33 @@
   --z-fixed: 100;
 }
 
+/* Light Mode Theme */
+[data-theme="light"] {
+  --bg-primary: #F6F6F6;
+  --bg-secondary: #FDE4C3;
+  --bg-tertiary: #e8e8e8;
+  
+  --text-primary: #1C1C1C;
+  --text-secondary: #302A1B;
+  --text-tertiary: rgba(48, 42, 27, 0.7);
+  
+  --text-gradient: linear-gradient(135deg, #302A1B, #1C1C1C);
+  
+  --accent-color: #302A1B;
+  --accent-hover: #1C1C1C;
+  
+  --glass-bg: rgba(253, 228, 195, 0.3);
+  --glass-border: rgba(48, 42, 27, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Legacy Variables (for compatibility) */
+  --body-color: #F6F6F6;
+  --container-color: #FDE4C3;
+  --title-color: #1C1C1C;
+  --text-color: #302A1B;
+  --text-color-light: rgba(48, 42, 27, 0.8);
+}
+
 /* RESPONSIVE TYPOGRAPHY */
 @media screen and (min-width: 968px) {
   :root {
@@ -74,15 +118,177 @@
   padding: 0;
   margin: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: var(--z-fixed);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px 0 var(--glass-shadow);
+  border-color: var(--accent-color);
+}
+
+/* Themed Text */
+.themed-text {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Gradient Text */
+.text-gradient, h1, h2, h3 {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Override for specific headings that shouldn't be gradient */
+h3.text-xl {
+  background: none;
+  -webkit-text-fill-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+/* Unified Section Padding */
+.section-padding {
+  padding: 5rem 1.5rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .section-padding {
+    padding: 7rem 4rem;
+  }
+}
+
+/* Fix container width for about and contact sections */
+.about-section,
+.contact-section {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .about-section,
+  .contact-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section Theming */
+.hero-section {
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+.about-section {
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+.contact-section {
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 var(--glass-shadow);
+  border-color: var(--accent-color);
+  background: rgba(48, 42, 27, 0.5);
+}
+
+/* Glass Input */
+.glass-input {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.glass-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(253, 228, 195, 0.15);
+  background: rgba(48, 42, 27, 0.5);
+}
+
+/* Projects Section */
+.projects-section {
+  background: var(--bg-secondary);
+  transition: background-color 0.3s ease;
+}
+
+/* Footer Glass */
+.footer-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--glass-border);
+}
+
 .container {
   max-width: 100%;
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
   justify-content: center;
 }
+
 .project-card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -102,6 +308,7 @@ html {
 
   width: 100%;
 }
+
 .project-card:hover {
   background-color: var(--black-color-alt);
   transition: transform 0.3s ease;

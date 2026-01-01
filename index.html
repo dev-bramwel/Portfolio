@@ -12,14 +12,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   </head>
-  <body class="bg-gray-900 text-white">
+  <body class="bg-gray-900 text-white" data-theme="dark">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Hero Section -->
     <section
-      class="h-screen bg-cover bg-center flex items-center justify-center text-center flex-col gap-3.5"
-      style="background-image: url('/assets/img/catt.jpg')"
+      class="hero-section h-screen flex items-center justify-center text-center flex-col gap-3.5"
     >
       <div class="nav p-8"></div>
-      <div class="bg-black bg-opacity-20 p-8 rounded my-1.5 m-3.5">
+      <div class="glass-card p-8 rounded my-1.5 m-3.5">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Bramwel</h1>
         <p class="text-lg md:text-xl mb-6">
           Freelance Web Designer & Full-Stack Developer
@@ -38,9 +42,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="max-w-5xl mx-auto py-20 px-4">
+    <section id="about" class="about-section section-padding">
       <h2 class="text-3xl font-semibold mb-6">About Me</h2>
-      <p class="text-gray-300 leading-relaxed">
+      <p class="themed-text leading-relaxed">
         I'm a self-taught developer focused on clean design and practical user
         experience. I work with HTML, CSS, and I'm diving deeper into frontend
         tools every day. I aim to build real-world websites that work and
@@ -51,8 +55,7 @@
     <!-- Projects Section -->
     <section
       id="projects"
-      class="bg-gray-800 py-20 px-4"
-      style="background-image: url('/assets/img/code.jpg')"
+      class="projects-section section-padding"
     >
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl font-semibold mb-10" style="color: --text-gradient">
@@ -60,53 +63,53 @@
         </h2>
         <div class="grid gap-6 md:grid-cols-3 mx-auto container">
           <div
-            class="bg-gray-700 p-6 rounded shadow hover:shadow-lg project-card"
+            class="glass-card p-6 rounded shadow hover:shadow-lg project-card"
           >
             <h3 class="text-xl font-bold mb-2">Landing Page</h3>
-            <p class="text-gray-300">
+            <p class="themed-text">
               A clean, mobile-first book-selling website built with HTML & CSS.
             </p>
           </div>
           <div
-            class="bg-gray-700 p-6 rounded shadow hover:shadow-lg project-card"
+            class="glass-card p-6 rounded shadow hover:shadow-lg project-card"
           >
             <h3 class="text-xl font-bold mb-2">Perfume Selling Site</h3>
-            <p class="text-gray-300">
+            <p class="themed-text">
               A fully functional online shop for perfumes, showcasing beautiful
               produsts that meet quality requirements.
             </p>
           </div>
           <div
-            class="bg-gray-700 p-6 rounded shadow hover:shadow-lg project-card"
+            class="glass-card p-6 rounded shadow hover:shadow-lg project-card"
           >
             <h3 class="text-xl font-bold mb-2">A car sales Site</h3>
-            <p class="text-gray-300">
+            <p class="themed-text">
               A fully custom car sales site that meet the needs of both buyers
               and sellers.
             </p>
           </div>
           <div
-            class="bg-gray-700 p-6 rounded shadow hover:shadow-lg project-card"
+            class="glass-card p-6 rounded shadow hover:shadow-lg project-card"
           >
             <h3 class="text-xl font-bold mb-2">E-commerce Site</h3>
-            <p class="text-gray-300">
+            <p class="themed-text">
               A fully functional e-commerce site with a focus on user
               experience.
             </p>
           </div>
           <div
-            class="bg-gray-700 p-6 rounded shadow hover:shadow-lg project-card"
+            class="glass-card p-6 rounded shadow hover:shadow-lg project-card"
           >
             <h3 class="text-xl font-bold mb-2">Portfolio Design</h3>
-            <p class="text-gray-300">
+            <p class="themed-text">
               This very portfolio — optimized for dark mode and responsiveness.
             </p>
           </div>
           <div
-            class="bg-gray-700 p-6 rounded shadow hover:shadow-lg project-card"
+            class="glass-card p-6 rounded shadow hover:shadow-lg project-card"
           >
             <h3 class="text-xl font-bold mb-2">Coming Soon</h3>
-            <p class="text-gray-300">
+            <p class="themed-text">
               More personal and client projects are on the way!
             </p>
           </div>
@@ -115,9 +118,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="max-w-5xl mx-auto py-20 px-4">
+    <section id="contact" class="contact-section section-padding">
       <h2 class="text-3xl font-semibold mb-6">Get in Touch</h2>
-      <p class="text-gray-300 mb-4">
+      <p class="themed-text mb-4">
         Want to work together or have a question? Let's connect!
       </p>
       <form class="mb-6">
@@ -130,10 +133,10 @@
           name="email"
           id="email"
           placeholder="Sign me up!"
-          class="w-full p-3 mb-4 bg-gray-700 rounded"
+          class="glass-input w-full p-3 mb-4 rounded"
         />
       </form>
-      <p class="text-gray-300 mb-4">You can also reach me directly at:</p>
+      <p class="themed-text mb-4">You can also reach me directly at:</p>
       <a
         href="mailto:mutugibramwel@gmail.com"
         class="inline-block bg-blue-600 px-6 py-3 rounded hover:bg-blue-700 transition"
@@ -177,9 +180,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-center py-6 text-gray-400">
+    <footer class="footer-glass text-center py-8 px-4">
       &copy; 2025 Bramwel. All rights reserved.
     </footer>
+    <script src="/assets/js/main.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
       var typed = new Typed(".auto_type", {
